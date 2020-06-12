@@ -5,21 +5,15 @@ import java.util.Scanner;
 public class DeliverableOne {
 
     public static void main(String[] args) {
-        String result = "";
         Scanner scanner = new Scanner(System.in);
         System.out.println("What kind of trip would you like to go on\n" +
                 "musical tropical or adventurous?");
         String vacationType = getTrip(scanner);
         System.out.println("How many are in your group?");
-
         int groupSize = readIntegerValue(scanner);
-
-        String destination;
-        String travelSuggestion;
-        destination = getDestination(vacationType);
-        travelSuggestion = getFlightType(groupSize);
-        result = getResult(vacationType, groupSize, destination, travelSuggestion);
-
+        String destination = getDestination(vacationType);
+        String travelSuggestion = getFlightType(groupSize);
+        String result = getResult(vacationType, groupSize, destination, travelSuggestion);
         System.out.println(result);
         scanner.close();
 
@@ -54,7 +48,7 @@ public class DeliverableOne {
 
     public static String getFlightType(int groupSize) {
         String flightType = "";
-        if (groupSize == 1 || groupSize == 2){
+        if (groupSize >= 1 && groupSize <= 2){
             flightType = "First Class";
         }else if (groupSize >=3 && groupSize <= 5) {
             flightType = "Helicopter";

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CoinTossTest {
 
     @Test
-    void ReverseHeadsToTailsOrTailsToHeads() {
+    void reverseHeadsToTailsOrTailsToHeads() {
         CoinToss coinToss = new CoinToss();
         assertEquals("heads", coinToss.reverseHeadsOrTails("tails"));
     }

@@ -24,7 +24,7 @@ public class DeliverableOne {
 
     }
 
-    private static String getFlightType(int groupSize) {
+    public static String getFlightType(int groupSize) {
         String flightType = "";
         if (groupSize == 1 || groupSize == 2){
             flightType = "First Class";
@@ -36,7 +36,7 @@ public class DeliverableOne {
         return flightType;
     }
 
-    private static String getDestination(String vacationType) {
+    public static String getDestination(String vacationType) {
         String destination = "";
         if (vacationType.equalsIgnoreCase(VacationType.Musical.toString())) {
             destination = "New Orleans";
@@ -50,7 +50,7 @@ public class DeliverableOne {
         return destination;
     }
 
-    private static String getResult(String vacationType, int groupSize, String destination, String travelSuggestion) {
+    public static String getResult(String vacationType, int groupSize, String destination, String travelSuggestion) {
         String result;
         result = "Since you’re a group of " + groupSize + " going on a " + vacationType + " vacation, you\n" +
                 "should take a " + travelSuggestion + " to " + destination;

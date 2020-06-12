@@ -1,4 +1,4 @@
-package com.okeyobia;
+package com.okeyobia.questionone;
 
 import java.util.Scanner;
 

@@ -1,5 +1,7 @@
 package com.okeyobia.questionone;
 
+import com.okeyobia.util.ReadNumber;
+
 import java.util.Scanner;
 
 public class DeliverableOne {
@@ -10,7 +12,7 @@ public class DeliverableOne {
                 "musical tropical or adventurous?");
         String vacationType = getTrip(scanner);
         System.out.println("How many are in your group?");
-        int groupSize = readIntegerValue(scanner);
+        int groupSize = ReadNumber.readIntegerValue(scanner);
         String destination = getDestination(vacationType);
         String travelSuggestion = getFlightType(groupSize);
         String result = getResult(vacationType, groupSize, destination, travelSuggestion);
@@ -28,23 +30,10 @@ public class DeliverableOne {
                     || tripType.equalsIgnoreCase("adventurous") )
                 break;
             System.out.println("Please enter the right trip:\nmusical\ntropical\nadventurous" );
-
         }
         return tripType;
     }
 
-    private static int readIntegerValue(Scanner readValue) {
-        int capacity = 0;
-        try {
-            capacity = readValue.nextInt();
-        }
-        catch(Exception e) {
-            System.out.println("only numbers are allowed");
-            readValue.nextLine();
-            capacity = readIntegerValue(readValue);
-        }
-        return capacity;
-    }
 
     public static String getFlightType(int groupSize) {
         String flightType = "";

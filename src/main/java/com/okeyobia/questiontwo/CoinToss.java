@@ -14,7 +14,7 @@ public class CoinToss {
         return value == 1 ? Coin.heads : Coin.tails;
     }
 
-    public String getValue(String str){
+    public String reverseHeadsOrTails(String str){
         return (str.equalsIgnoreCase("heads")) ? "tails" : "heads";
     }
 }

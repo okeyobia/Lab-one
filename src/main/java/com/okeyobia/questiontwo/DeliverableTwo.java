@@ -1,6 +1,5 @@
 package com.okeyobia.questiontwo;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class DeliverableTwo {
@@ -19,7 +18,7 @@ public class DeliverableTwo {
                 System.out.println(headsOrTailGuess);
                 correctCount++;
             }else
-                System.out.println(toss.getValue(headsOrTailGuess));
+                System.out.println(toss.reverseHeadsOrTails(headsOrTailGuess));
         }
         double result = calculateStatistics(numberOfFlips, correctCount);
         String stringResult =String.format("%.2f", result);
@@ -27,7 +26,7 @@ public class DeliverableTwo {
         readValue.close();
     }
 
-    private static double calculateStatistics(int numberOfFlips, int correctCount) {
+    public static double calculateStatistics(int numberOfFlips, int correctCount) {
          return (double) (correctCount * 100) / numberOfFlips;
     }
 

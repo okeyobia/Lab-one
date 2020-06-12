@@ -7,11 +7,12 @@ public class DeliverableOne {
     public static void main(String[] args) {
         String result = "";
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What kind of trip would you like to go on\n " +
+        System.out.println("What kind of trip would you like to go on\n" +
                 "musical tropical or adventurous?");
-        String vacationType = scanner.next();
+        String vacationType = getTrip(scanner);
         System.out.println("How many are in your group?");
-        int groupSize = scanner.nextInt();
+
+        int groupSize = readIntegerValue(scanner);
 
         String destination;
         String travelSuggestion;
@@ -22,6 +23,33 @@ public class DeliverableOne {
         System.out.println(result);
         scanner.close();
 
+    }
+
+    private static String getTrip(Scanner scanner){
+        String tripType;
+        while (true) {
+            tripType = scanner.next();
+            if (tripType.equalsIgnoreCase("musical")
+                    || tripType.equalsIgnoreCase("tropical")
+                    || tripType.equalsIgnoreCase("adventurous") )
+                break;
+            System.out.println("Please enter the right trip:\nmusical\ntropical\nadventurous" );
+
+        }
+        return tripType;
+    }
+
+    private static int readIntegerValue(Scanner readValue) {
+        int capacity = 0;
+        try {
+            capacity = readValue.nextInt();
+        }
+        catch(Exception e) {
+            System.out.println("only numbers are allowed");
+            readValue.nextLine();
+            capacity = readIntegerValue(readValue);
+        }
+        return capacity;
     }
 
     public static String getFlightType(int groupSize) {
@@ -45,13 +73,15 @@ public class DeliverableOne {
         }else if (vacationType.equalsIgnoreCase(VacationType.Adventurous.toString())){
             destination = "Whitewater Rafting the Grand Canyon";
         } else {
-            System.out.println("Please enter the correct Vacation Type.");
+           destination = "invalid";
         }
         return destination;
     }
 
     public static String getResult(String vacationType, int groupSize, String destination, String travelSuggestion) {
         String result;
+        if (getDestination(vacationType).equals("invalid"))
+            return result ="Please enter the correct trip.";
         result = "Since you’re a group of " + groupSize + " going on a " + vacationType + " vacation, you\n" +
                 "should take a " + travelSuggestion + " to " + destination;
         return result;
